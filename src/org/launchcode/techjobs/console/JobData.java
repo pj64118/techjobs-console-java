@@ -49,7 +49,9 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
-        return allJobs;
+        ArrayList<HashMap<String, String>> newArrayList = new ArrayList<>(allJobs);
+       
+        return newArrayList;
     }
 
     /**
@@ -103,7 +105,7 @@ public class JobData {
         for (HashMap<String, String> row : allJobs) {
 
             Collection<String> aValue = row.values();
-            if (aValue.toString().contains(value)) {
+            if (aValue.toString().toLowerCase().contains(value.toLowerCase())) {
                jobs.add(row);
             }
         }
